@@ -874,6 +874,12 @@ variable "authentication_oidc_token_endpoint" {
   default     = ""
 }
 
+variable "codestar_connection_arn" {
+  type        = string
+  description = "Used instead of a Github token, for the v2 Github integration."
+  default     = null
+}
+
 variable "authentication_oidc_user_info_endpoint" {
   type        = string
   description = "OIDC User Info Endpoint"
@@ -896,6 +902,12 @@ variable "codepipeline_build_compute_type" {
   type        = string
   default     = "BUILD_GENERAL1_SMALL"
   description = "`CodeBuild` instance size. Possible values are: `BUILD_GENERAL1_SMALL` `BUILD_GENERAL1_MEDIUM` `BUILD_GENERAL1_LARGE`"
+}
+
+variable "codebuild_cache_type" {
+  type        = string
+  description = "The type of storage that will be used for the AWS CodeBuild project cache. Valid values: NO_CACHE, LOCAL, and S3.  Defaults to NO_CACHE.  If cache_type is S3, it will create an S3 bucket for storing codebuild cache inside"
+  default     = "NO_CACHE"
 }
 
 variable "codepipeline_s3_bucket_force_destroy" {
